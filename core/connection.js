@@ -575,16 +575,17 @@ Blockly.Connection.prototype.disconnectInternal_ = function(parentBlock,
     Blockly.Events.fire(event);
   }
   
-  var workspace = parentBlock.workspace;
-  Blockly.Events.disable();
   // Reconstruct parent and child blocks to restore type variables 
-  if( workspace ) {  // workspace is non-null for user-initiated disconnections
+  Blockly.Events.disable();
+  var workspace = new Blockly.Workspace();  // Headless workspace for reconstructed blocks
+  if( workspace ) {
     // Find top-level ancestor block
     var rootBlock = parentBlock.getRootBlock();
     // Export top-level ancestor to xml
     var rootDom = Blockly.Xml.blockToDom( rootBlock );
     // Re-construct block but without rendering it
-    var newRootBlock = Blockly.Xml.domToBlockHeadless_( rootDom, workspace );
+    console.log( "About to domToBlock root ", rootDom, workspace );
+    var newRootBlock = Blockly.Xml.domToBlock( rootDom, workspace );
     // Copy connection types from new block to old
     rootBlock.copyConnectionTypes_( newRootBlock, true );
     // Delete temporary block
@@ -594,7 +595,8 @@ Blockly.Connection.prototype.disconnectInternal_ = function(parentBlock,
     // Export child block to xml
     var childDom = Blockly.Xml.blockToDom( childBlock );
     // Re-construct block but without rendering it
-    var newChildBlock = Blockly.Xml.domToBlockHeadless_( workspace, childDom );
+    console.log( "About to domToBlock child ", childDom, workspace );
+    var newChildBlock = Blockly.Xml.domToBlock( childDom, workspace );
     
     // Copy connection types from new block to old
     childBlock.copyConnectionTypes_( newChildBlock, false );
@@ -603,6 +605,7 @@ Blockly.Connection.prototype.disconnectInternal_ = function(parentBlock,
     newChildBlock.dispose();
 //  Blockly.TypeVar.triggerGarbageCollection(); // Don't think this is necessary
   }
+  workspace.dispose();
   Blockly.Events.enable();
   // Blocks have already been re-rendered in copyConnectionTypes_. Just need to update disabled status.
   if (childBlock.rendered) {

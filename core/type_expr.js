@@ -174,15 +174,16 @@ Blockly.TypeVar.doGarbageCollection = function () {
     }
     t.children.map(function (c) { traverse(c) } );
   };
-  var blocks = Blockly.mainWorkspace.getAllBlocks();
-  if (Blockly.mainWorkspace.flyout_) {
-    blocks = blocks.concat(Blockly.mainWorkspace.flyout_.workspace_.getAllBlocks());
-  }
-  for (var i = 0; i < blocks.length; i++) {
-    var connections = blocks[i].getConnections_(true);
-    for (var j = 0; j < connections.length; j++) {
-      if (connections[j].typeExpr) {
-        traverse(connections[j].typeExpr)
+  for( var i in Blockly.Workspace.WorkspaceDB_ ) {
+    var workspace = Blockly.Workspace.WorkspaceDB_[i];
+    console.log( "doGC: checking workspace ", workspace );
+    var blocks = workspace.getAllBlocks();
+    for (var i = 0; i < blocks.length; i++) {
+      var connections = blocks[i].getConnections_(true);
+      for (var j = 0; j < connections.length; j++) {
+        if (connections[j].typeExpr) {
+          traverse(connections[j].typeExpr)
+        }
       }
     }
   }
