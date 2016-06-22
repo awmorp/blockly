@@ -176,7 +176,7 @@ Blockly.TypeVar.doGarbageCollection = function () {
   };
   for( var i in Blockly.Workspace.WorkspaceDB_ ) {
     var workspace = Blockly.Workspace.WorkspaceDB_[i];
-    console.log( "doGC: checking workspace ", workspace );
+//    console.log( "doGC: checking workspace ", workspace );
     var blocks = workspace.getAllBlocks();
     for (var i = 0; i < blocks.length; i++) {
       var connections = blocks[i].getConnections_(true);
