@@ -183,7 +183,8 @@ Blockly.Field.prototype.dispose = function() {
  * Add or remove the UI indicating if this field is editable or not.
  */
 Blockly.Field.prototype.updateEditable = function() {
-  if (!this.EDITABLE || !this.sourceBlock_) {
+  if (!this.EDITABLE || !this.sourceBlock_ || !this.fieldGroup_) {
+    /* Non-editable field, or not yet attached to a block, or in a headless workspace */
     return;
   }
   if (this.sourceBlock_.isEditable()) {
