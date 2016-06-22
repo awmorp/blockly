@@ -85,10 +85,10 @@ Blockly.FieldFlydown.prototype.showEditor_ = function() {
   }
 }
 
-Blockly.FieldFlydown.prototype.init = function(block) {
-  Blockly.FieldFlydown.superClass_.init.call(this, block);
+Blockly.FieldFlydown.prototype.init = function() {
+  Blockly.FieldFlydown.superClass_.init.call(this);
 
-  Blockly.Flydown.workspaceInit( block.workspace );  // Set up Flydown for this workspace
+  Blockly.Flydown.workspaceInit( this.sourceBlock_.workspace );  // Set up Flydown for this workspace
   
    /* Bind mouse handlers */
   this.mouseOverWrapper_ =
