@@ -584,7 +584,6 @@ Blockly.Connection.prototype.disconnectInternal_ = function(parentBlock,
     // Export top-level ancestor to xml
     var rootDom = Blockly.Xml.blockToDom( rootBlock );
     // Re-construct block but without rendering it
-    console.log( "About to domToBlock root ", rootDom, workspace );
     var newRootBlock = Blockly.Xml.domToBlock( rootDom, workspace );
     // Copy connection types from new block to old
     rootBlock.copyConnectionTypes_( newRootBlock, true );
@@ -595,7 +594,6 @@ Blockly.Connection.prototype.disconnectInternal_ = function(parentBlock,
     // Export child block to xml
     var childDom = Blockly.Xml.blockToDom( childBlock );
     // Re-construct block but without rendering it
-    console.log( "About to domToBlock child ", childDom, workspace );
     var newChildBlock = Blockly.Xml.domToBlock( childDom, workspace );
     
     // Copy connection types from new block to old
