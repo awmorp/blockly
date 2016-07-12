@@ -291,17 +291,17 @@ Blockly.BlockSvg.typeVarShapes_ = {
   },
   
   Vector: {
-    down: 'l 0,2 v 5 h -3 v -5 l -5 10 l 5 10 v -5 h 3 v 5 l 0,2',
-    up: 'l 0,-2 v -5 h -3 v 5 l -5 -10 l 5 -10 v 5 h 3 v -5 l 0,-2',
-    height: 24,
+    down: 'l 0,2 v 5 h -3 v -5 l -5 10 l 5 10 v -5 h 3 v 3',
+    up: 'v -3 h -3 v 5 l -5 -10 l 5 -10 v 5 h 3 v -5 l 0,-2',
+    height: 20,
     blockColour: Blockly.BlockSvg.VECTOR_COLOUR
   },
 
   typeVar : { 
-    down: 'l 0,5 -8,0 0,15 8,0 0,5',
-    up: 'l 0,-5 -8,0 0,-15 8,0 0,-5',
-    highlight: 'm 0,5 l -8,0 0,15 8,0 m 0,5',
-    height: 25,
+    down: 'l 0,5 -8,0 0,14 8,0 0,1',
+    up: 'l 0,-1 -8,0 0,-14 8,0 0,-5',
+    highlight: 'm 0,5 l -8,0 0,14 8,0 m 0,5',
+    height: 20,
     blockColour: Blockly.BlockSvg.ABSTRACT_COLOUR
   },
 
