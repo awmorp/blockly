@@ -1380,6 +1380,7 @@ Blockly.Block.prototype.makeConnection_ = function(type) {
  * @param {Blockly.Block} source Block to copy types from. Assumed to be the same block type as this block.
  * @param {bool} keepVars If true, existing type variables should be kept if possible; if false, type variables will be replaced with those from source.
  */
+ // TODO: This gets called unnecessarily when deleting composite blocks. Can we optimise to call this only when necessary?
 Blockly.Block.prototype.copyConnectionTypes_ = function(source, keepVars) {
 //  console.log( "copyConnectionTypes:", this, source, keepVars );
   if( !source ) return;
@@ -1429,6 +1430,9 @@ Blockly.Block.copyConnectionTypesR_ = function(dest, source, subst, keepVars) {
       }
     }
   }
-  dest.render();  // Not very efficient perhaps...
+  if( dest.rendered && dest.workspace ) {
+    console.log( "CCTR_ dest: ", dest );
+    dest.render();
+  }
   return( subst );
 };
