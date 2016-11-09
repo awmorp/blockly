@@ -316,13 +316,10 @@ Blockly.RenderedConnection.prototype.disconnectInternal_ = function(parentBlock,
     childBlock) {
   Blockly.RenderedConnection.superClass_.disconnectInternal_.call(this,
       parentBlock, childBlock);
-  // Rerender the parent so that it may reflow.
-  if (parentBlock.rendered) {
-    parentBlock.render();
-  }
+  // Rerender the workspace as types may have changed.
+  if( parentBlock.workspace && parentBlock.workspace.render ) parentBlock.workspace.render();
   if (childBlock.rendered) {
     childBlock.updateDisabled();
-    childBlock.render();
   }
 };
 
