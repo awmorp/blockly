@@ -605,10 +605,6 @@ Blockly.Connection.prototype.disconnectInternal_ = function(parentBlock,
   }
   workspace.dispose();
   Blockly.Events.enable();
-  // Blocks have already been re-rendered in copyConnectionTypes_. Just need to update disabled status.
-  if (childBlock.rendered) {
-    childBlock.updateDisabled();
-  }
 };
 
 /**

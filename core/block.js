@@ -1430,9 +1430,5 @@ Blockly.Block.copyConnectionTypesR_ = function(dest, source, subst, keepVars) {
       }
     }
   }
-  if( dest.rendered && dest.workspace ) {
-    console.log( "CCTR_ dest: ", dest );
-    dest.render();
-  }
   return( subst );
 };
