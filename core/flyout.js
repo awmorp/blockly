@@ -722,6 +722,7 @@ Blockly.Flyout.prototype.blockMouseDown_ = function(block) {
           'mousemove', this, flyout.onMouseMoveBlock_);
     }
     // This event has been handled.  No need to bubble up to the document.
+    e.preventDefault();
     e.stopPropagation();
   };
 };
