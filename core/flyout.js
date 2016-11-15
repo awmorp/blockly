@@ -704,6 +704,7 @@ Blockly.Flyout.prototype.addBlockListeners_ = function(root, block, rect) {
 Blockly.Flyout.prototype.blockMouseDown_ = function(block) {
   var flyout = this;
   return function(e) {
+    console.log( "Flyout blockMouseDown", block, e );
     Blockly.terminateDrag_();
     Blockly.hideChaff();
     if (Blockly.isRightButton(e)) {
@@ -732,6 +733,7 @@ Blockly.Flyout.prototype.blockMouseDown_ = function(block) {
  * @private
  */
 Blockly.Flyout.prototype.onMouseDown_ = function(e) {
+  console.log( "Flyout onMouseDown", e );
   if (Blockly.isRightButton(e)) {
     return;
   }
@@ -830,6 +832,7 @@ Blockly.Flyout.prototype.onMouseMoveBlock_ = function(e) {
 Blockly.Flyout.prototype.createBlockFunc_ = function(originBlock) {
   var flyout = this;
   return function(e) {
+    console.log( "Flyout createBlockFunc", originBlock, e );
     if (Blockly.isRightButton(e)) {
       // Right-click.  Don't create a block, let the context menu show.
       return;

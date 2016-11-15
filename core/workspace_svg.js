@@ -609,6 +609,7 @@ Blockly.WorkspaceSvg.prototype.isDeleteArea = function(e) {
  * @private
  */
 Blockly.WorkspaceSvg.prototype.onMouseDown_ = function(e) {
+  console.log( "WorkspaceSvg onMouseDown", this, e );
   this.markFocused();
   if (Blockly.isTargetInput_(e)) {
     return;

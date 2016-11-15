@@ -561,6 +561,7 @@ Blockly.Toolbox.TreeNode.prototype.getExpandIconSafeHtml = function() {
  * @override
  */
 Blockly.Toolbox.TreeNode.prototype.onMouseDown = function(e) {
+  console.log(" Toolbox onMouseDown", this, e );
   // Expand icon.
   if (this.hasChildren() && this.isUserCollapsible_) {
     this.toggle();
