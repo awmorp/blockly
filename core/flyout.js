@@ -724,6 +724,7 @@ Blockly.Flyout.prototype.blockMouseDown_ = function(block) {
     }
     // This event has been handled.  No need to bubble up to the document.
     e.stopPropagation();
+    e.preventDefault();
   };
 };
 
@@ -746,8 +747,8 @@ Blockly.Flyout.prototype.onMouseDown_ = function(e) {
   Blockly.Flyout.onMouseUpWrapper_ = Blockly.bindEvent_(document, 'mouseup',
       this, Blockly.Flyout.terminateDrag_);
   // This event has been handled.  No need to bubble up to the document.
-  e.preventDefault();
   e.stopPropagation();
+  e.preventDefault();
 };
 
 /**
