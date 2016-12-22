@@ -296,6 +296,22 @@ Blockly.BlockSvg.typeVarShapes_ = {
     height: 20,
     blockColour: Blockly.BlockSvg.VECTOR_COLOUR
   },
+  
+  Abstract: {
+    /* Use Blockly default puzzle shape */
+    down: 
+    'v 5 c 0,10 -' + Blockly.BlockSvg.TAB_WIDTH +
+     ',-8 -' + Blockly.BlockSvg.TAB_WIDTH + ',7.5 s ' +
+    Blockly.BlockSvg.TAB_WIDTH + ',-2.5 ' + Blockly.BlockSvg.TAB_WIDTH + ',7.5',
+
+    up: 
+    'c 0,-10 -' + Blockly.BlockSvg.TAB_WIDTH + ',8 -' +
+    Blockly.BlockSvg.TAB_WIDTH + ',-7.5 s ' + Blockly.BlockSvg.TAB_WIDTH +
+    ',2.5 ' + Blockly.BlockSvg.TAB_WIDTH + ',-7.5',
+
+    height: 20,
+    blockColour: Blockly.BlockSvg.ABSTRACT_COLOUR
+  },
 
   typeVar : { 
     down: 'l 0,5 -8,0 0,14 8,0 0,1',
